@@ -2,9 +2,9 @@
 
 31 free Claude skills for Google Ads. They audit an account, clean up search terms, write RSA ads, pace budgets and write client reports. I built them for my own agency work at [PPC.io](https://ppc.io/claude-skills?utm_source=github&utm_medium=readme&utm_campaign=claude-skills), and they're open source under Apache-2.0.
 
-[![Watch me run 3 of the skills on a real account](https://i.ytimg.com/vi/x2ZM1geLa2k/maxresdefault.jpg)](https://www.youtube.com/watch?v=x2ZM1geLa2k)
+[![Watch the Claude skills I use most for Google Ads](https://i.ytimg.com/vi/2bRzxcf9qVY/maxresdefault.jpg)](https://www.youtube.com/watch?v=2bRzxcf9qVY)
 
-My January video on these skills got 27,000 views. Since then I've built 7 more, and those come with Python scripts, so every number comes from your own data.
+My new video shows the ones I use most. Since my January video, which got 27,000 views, I've built 7 more. Those come with Python scripts, so every number comes from your own data.
 
 ## Install
 
