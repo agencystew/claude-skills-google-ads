@@ -1,0 +1,19 @@
+{
+  "name": "ppc-io",
+  "owner": {
+    "name": "PPC.io",
+    "url": "https://ppc.io"
+  },
+  "metadata": {
+    "description": "Free Claude skills for Google Ads from PPC.io"
+  },
+  "plugins": [
+    {
+      "name": "ppc-google-ads",
+      "source": "./",
+      "description": "31 free Claude skills for Google Ads from PPC.io: audits, search terms, negative keywords, RSA ads, reports, budgets and landing pages.",
+      "version": "1.0.0",
+      "category": "marketing"
+    }
+  ]
+}

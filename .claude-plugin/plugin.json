@@ -1,0 +1,19 @@
+{
+  "name": "ppc-google-ads",
+  "version": "1.0.0",
+  "description": "31 free Claude skills for Google Ads from PPC.io: audits, search terms, negative keywords, RSA ads, reports, budgets and landing pages.",
+  "author": {
+    "name": "Stewart Dunlop, PPC.io",
+    "url": "https://ppc.io/claude-skills"
+  },
+  "homepage": "https://ppc.io/claude-skills",
+  "repository": "https://github.com/agencystew/claude-skills-google-ads",
+  "keywords": [
+    "google-ads",
+    "ppc",
+    "claude-skills",
+    "paid-search",
+    "marketing"
+  ],
+  "license": "Apache-2.0"
+}

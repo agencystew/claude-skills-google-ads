@@ -1,0 +1,37 @@
+schema_version: '1.1'
+name: gpt-under-30
+tags:
+- video-a
+- gpt
+description: gpt-to-skill on the Harbour Dental demo account
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: Here are my custom GPT's instructions (instructions.txt) and conversation starters (starters.txt). GPTs shut down on 11 December. Audit it and tell me what has to change before I move it to a
+    Claude skill. Don't build it yet.
+  max_turns: 40
+  timeout_seconds: 900
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  - Bash
+  - Write
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?gpt-to-skill"'
+- name: shouted-count
+  type: regex
+  pattern: \b8\b
+  target: last_message
+- name: under-30
+  type: regex
+  pattern: (?i)under 30
+  target: last_message
+- name: rubric
+  type: llm
+  criteria: PASS if the answer reports 8 shouted rule words, flags that 'UNDER 30 CHARACTERS' wastes a character because Google allows 30, names the 'concise but explain in detail' clash, notes there is
+    no 'when not to use', and asks before building. FAIL if it builds the skill without asking or misses the 30-character problem.

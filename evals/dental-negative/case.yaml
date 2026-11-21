@@ -1,0 +1,33 @@
+schema_version: '1.1'
+name: dental-negative
+tags:
+- video-c
+- negatives
+description: search-term-miner on the Harbour Dental demo account
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: Mine Harbour Dental's last 90 days of search terms and give me a negative keyword list I can paste in. Target CPA £60, implants £90. Brand campaigns contain 'Brand'. The never-negate, services,
+    and locations files are in this folder.
+  max_turns: 40
+  timeout_seconds: 900
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  - Bash
+  - Write
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?search-term-miner"'
+- name: warns-44
+  type: regex
+  pattern: \b44\b
+  target: last_message
+- name: rubric
+  type: llm
+  criteria: PASS if the list does NOT add the single word 'dental' as a negative, the answer warns that negating 'dental' would block about 44 bookings, and every negative in the list has 0 bookings in
+    the data. FAIL if 'dental' is in the final list, or any negative blocks a converting term.

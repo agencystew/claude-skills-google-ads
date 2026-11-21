@@ -1,0 +1,33 @@
+schema_version: '1.1'
+name: monday-report
+tags:
+- video-c
+- report
+description: weekly-client-report on the Harbour Dental demo account
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: Write this week's Monday update for Sam, the practice manager at Harbour Dental. Plain English, no jargon. Files are in this folder. Budget £16,000 a month, target CPA £60, brand campaigns contain
+    'Brand'.
+  max_turns: 40
+  timeout_seconds: 900
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  - Bash
+  - Write
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?weekly-client-report"'
+- name: new-patient-drop
+  type: regex
+  pattern: 19\s?%
+  target: last_message
+- name: rubric
+  type: llm
+  criteria: PASS if the first line gives the main news in plain words, the report says total bookings were about flat (about 130) while new-patient (non-brand) bookings fell about 19%, and it uses no ad
+    jargon like CPA or ROAS without explaining it. FAIL if it opens with good news while hiding the non-brand drop, or invents numbers.

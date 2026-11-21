@@ -1,0 +1,36 @@
+schema_version: '1.1'
+name: change-at-3am
+tags:
+- video-c
+- changes
+description: change-detective on the Harbour Dental demo account
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: Invisalign leads at Harbour Dental fell off a cliff in November. Nobody on our team admits changing anything. Find out what changed and when. Files are in this folder. Target CPA £60.
+  max_turns: 40
+  timeout_seconds: 900
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  - Bash
+  - Write
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?change-detective"'
+- name: names-0302
+  type: regex
+  pattern: 0?3:02
+  target: last_message
+- name: auto-applied
+  type: regex
+  pattern: auto.?appl
+  target: last_message
+- name: rubric
+  type: llm
+  criteria: PASS if the answer names the target CPA cut from £70 to £45 and the broad keywords Google auto-applied at 03:02 on 9 November, ties each to the drop with dates, and says which change to look
+    at first. FAIL if it blames a cause with no date or misses the auto-applied keywords.

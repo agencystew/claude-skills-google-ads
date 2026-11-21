@@ -1,0 +1,37 @@
+schema_version: '1.1'
+name: lag-down-32
+tags:
+- video-c
+- lag
+description: conversion-lag-check on the Harbour Dental demo account
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: Harbour Dental's conversions look down about 32% this month and the client is panicking. Is it real? The account files are in this folder. Target CPA is £60, implants £90, brand campaigns contain
+    'Brand'.
+  max_turns: 40
+  timeout_seconds: 900
+  allowed_tools:
+  - Read
+  - Glob
+  - Grep
+  - Skill
+  - Bash
+  - Write
+graders:
+- name: skill-fired
+  type: tool_used
+  tool: Skill
+  input_match: '"skill"\s*:\s*"(?:[\w-]+:)?conversion-lag-check"'
+- name: says-15
+  type: regex
+  pattern: 1[45](\.\d)?\s?%
+  target: last_message
+- name: names-lag
+  type: regex
+  pattern: \blag\b
+  target: last_message
+- name: rubric
+  type: llm
+  criteria: PASS if the answer says most of the drop is conversion lag (recent days not yet counted), gives a lag-adjusted figure near -15% instead of -32%, and keeps brand apart from non-brand. FAIL if
+    it treats the 32% drop as real or recommends emergency changes based on it.
