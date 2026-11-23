@@ -1,6 +1,6 @@
 # Claude Skills for Google Ads
 
-31 free Claude skills for Google Ads. They audit an account, clean up search terms, write RSA ads, pace budgets and write client reports. I built them for my own agency work at [PPC.io](https://ppc.io/claude-skills?utm_source=github&utm_medium=readme&utm_campaign=claude-skills), and they're open source under Apache-2.0.
+32 free Claude skills for Google Ads. They audit an account, clean up search terms, write RSA ads, pace budgets and write client reports. I built them for my own agency work at [PPC.io](https://ppc.io/claude-skills?utm_source=github&utm_medium=readme&utm_campaign=claude-skills), and they're open source under Apache-2.0.
 
 [![Watch the Claude skills I use most for Google Ads](https://i.ytimg.com/vi/2bRzxcf9qVY/maxresdefault.jpg)](https://www.youtube.com/watch?v=2bRzxcf9qVY)
 
@@ -19,9 +19,9 @@ To add one skill on its own, copy its folder from `skills/` into `~/.claude/skil
 
 **Claude app** (claude.ai or desktop). Turn on code execution in Settings > Capabilities. Download a skill zip from the [latest release](https://github.com/agencystew/claude-skills-google-ads/releases/latest), then upload it in Customize > Skills.
 
-**ChatGPT or Gemini.** The 24 skills without scripts work as plain instructions. Open the skill's `SKILL.md`, copy all of it, and paste it in as your instructions.
+**ChatGPT or Gemini.** The 25 skills without scripts work as plain instructions. Open the skill's `SKILL.md`, copy all of it, and paste it in as your instructions.
 
-## All 31 skills, by job
+## All 32 skills, by job
 
 ### Claude skills for search terms and negative keywords
 
@@ -72,10 +72,11 @@ Find out why a number moved before your client asks. The 3 new ones run scripts 
 
 ### Claude skills for landing pages
 
-These check the page after the click. Five of them work with Postclick, my landing page tool.
+One builds the page behind your ad. The others check it after the click, and five of them work with Postclick, my landing page tool.
 
 | Skill | What it does |
 |---|---|
+| [Landing Page Design](skills/landing-page-design) | Designs and builds the landing page behind your ad as one HTML file, then scores it out of 100. [Example](https://ppc.io/free-tools/landing-page-design?utm_source=github&utm_medium=readme&utm_campaign=claude-skills) |
 | [Landing Page Quick Audit](skills/landing-page-quick-audit) | Checks a landing page for message match with the ad, trust, the button and mobile, then gives 3 quick wins. [Example](https://ppc.io/free-tools/landing-page-quick-audit?utm_source=github&utm_medium=readme&utm_campaign=claude-skills) |
 | [Improve my page](skills/postclick-fix-first) | Reads a Postclick audit of your page and shows the one change to make first, with the exact edit. [Example](https://ppc.io/free-tools/postclick-fix-first?utm_source=github&utm_medium=readme&utm_campaign=claude-skills) |
 | [Rewrite my copy](skills/postclick-copy-rewrite) | Turns Postclick audit findings into new words you can paste onto the page. [Example](https://ppc.io/free-tools/postclick-copy-rewrite?utm_source=github&utm_medium=readme&utm_campaign=claude-skills) |
