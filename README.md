@@ -15,6 +15,12 @@ My new video shows the ones I use most. Since my January video, which got 27,000
 /plugin install ppc-google-ads@ppc-io
 ```
 
+**Any agent with the skills CLI** (Claude Code, Cursor, Codex and others). Run this in your terminal and pick the skills you want:
+
+```
+npx skills add agencystew/claude-skills-google-ads
+```
+
 To add one skill on its own, copy its folder from `skills/` into `~/.claude/skills/`.
 
 **Claude app** (claude.ai or desktop). Turn on code execution in Settings > Capabilities. Download a skill zip from the [latest release](https://github.com/agencystew/claude-skills-google-ads/releases/latest), then upload it in Customize > Skills.
